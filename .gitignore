@@ -1,0 +1,8 @@
+venv/*
+app.wsgi
+*.Python
+bin
+lib
+lib64
+include
+settings.cfg
