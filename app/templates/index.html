@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content_body %}
+
+<div class="article">
+<div class="date">
+	<b>ENTRIES</b>
+</div>
+<form action="{{ url_for('index') }}" class="control" id="search-form" method="post" role="search">
+<button type="submit" name="order" value="desc" class="order {% if order == "asc" %}unsel{% endif %}">Newest</button>
+<button type="submit" name="order" value="asc" class="order {% if order == "desc" %}unsel{% endif %}">Oldest</button>
+	<input class="search" name="search" placeholder="Search" type="text" value="{% if search %}{{ search }}{% endif %}">
+</form>
+
+</div>
+
+{% for article in query %}
+<div class="article">
+<div class="date">
+	<b>{{ article.timestamp.strftime('%b %d').upper() }}</b>
+	{{ article.timestamp.strftime('%Y') }}
+</div>
+<h1><a class='indexlink' href='/{{ article.slug }}'>{{ article.title }}</a></h1>
+{{ article.abstract }}
+</div>
+{% endfor %}
+{% endblock %}
+

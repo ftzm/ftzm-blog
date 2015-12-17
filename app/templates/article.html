@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %} FTZM - {{ article.title }} {% endblock %}
+{% block content_body %}
+<span class="timestamp">{{ article.timestamp.strftime('%B %d, %Y') }}</span>
+<h1>{{ article.title }}</h1>
+<h3>{{ article.abstract | safe }}</h3>
+{{ article.content_html | safe }}
+{% endblock %}
+
+
