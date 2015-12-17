@@ -13,8 +13,47 @@
 
 {% block content %}
 <div class="container">
-    <div class="main">
+    <div class="sidebar">
+        <a class='logo' href='/'>{% include 'logo.html' %}</a>
+        <h2>A Blog about Computers and Code</h2>
+        <p>
+        Matthew Fitzsimmons spends a lot of time on Linux machines writing Python and developing for the web. This is where he writes about it.
+        </p>
+        <ul class="menu">
+            <li class="menuitem"><a class="menulink" href="{{ url_for('index') }}">BLOG</a></li>
+            <li class="menuitem"><a class="menulink" href="{{ url_for('portfolio') }}">PORTFOLIO</a></li>
+            <li class="menuitem"><a class="menulink" href="{{ url_for('about') }}">ABOUT</a></li>
+            <li class="menuitem"><a class="menulink" href="{{ url_for('contact') }}">CONTACT</a></li>
+            <li class="menuitem"><a class="menulink" href="{{ url_for('contact') }}"><i class="fa fa-rss fa-lg"></i></a></li>
+        </ul>
+        <input type="checkbox" class="hide" id="op"></input>
+        <div class="lower">
+            <label for="op">
 
+                <div class="lower_inner">
+                    <div class="burger"></div>
+                    <div class="burger"></div>
+                </div>
+
+            </label>
+        </div>
+        <div class="overlay overlay-hugeinc">
+            <label for="op">
+                <div class="x1"></div>
+                <div class="x2"></div>
+            </label>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('index') }}">BLOG</a></li>
+                    <li><a href="{{ url_for('portfolio') }}">PORTFOLIO</a></li>
+                    <li><a href="{{ url_for('about') }}">ABOUT</a></li>
+                    <li><a href="{{ url_for('contact') }}">CONTACT</a></li>
+                    <li><a href="{{ url_for('contact') }}">CONTACT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="main">
         <div class="content">
             {% block content_body %}
             {% endblock %}
@@ -22,65 +61,6 @@
                 Copyright © {{ year }} Matthew Fitzsimmons. All Rights Reserved.
             </footer>
         </div>
-    </div>
-    <div class="sidebar">
-        <div class="top">
-            <a href='/'>
-                <svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="35px" width="150px" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="0 0 430.38594 94.463221">
-                    <g transform="translate(-100.79 -330.57)">
-                    <g class='logocolor' fill="#ff3433">
-                    <path d="m100.79 330.71h68.76q0.9 3.6 1.08 6.66 0.36 3.06 0.36 5.94t-0.36 6.12q-0.18 3.06-1.08 6.66h-38.34v14.4h30.96q0.9 3.6 1.08 6.66 0.36 3.06 0.36 5.94t-0.36 6.12q-0.18 3.06-1.08 6.66h-30.96v27.54q-3.78 0.9-7.74 1.08-3.96 0.36-7.38 0.36-3.6 0-7.56-0.36-3.78-0.18-7.74-1.08v-92.7z"/>
-                    <path d="m204.46 356.09h-26.64q-0.9-3.6-1.26-6.66-0.18-3.24-0.18-6.12t0.18-5.94q0.36-3.06 1.26-6.66h83.7q0.9 3.6 1.08 6.66 0.36 3.06 0.36 5.94t-0.36 6.12q-0.18 3.06-1.08 6.66h-26.64v67.5q-4.68 0.72-8.46 1.08t-6.84 0.36-6.84-0.36-8.28-1.08v-67.5z"/>
-                    <path d="m263.05 418.37 37.62-63h-30.78q-0.9-3.96-1.26-6.84-0.18-3.06-0.18-5.76t0.18-5.4q0.36-2.88 1.26-6.66h73.26l1.8 5.76-37.8 62.64h34.38q1.26 7.38 1.26 12.6 0 2.7-0.36 5.58-0.18 2.7-0.9 6.48h-75.6l-2.88-5.4z"/>
-                    <path d="m350.67 336.74q6.1746-2.117 14.819-4.0576 8.6445-2.117 21.876-2.117 7.2331 0 14.29 1.2349 7.0567 1.0585 13.055 4.5869 4.5869-2.2934 10.762-4.0576 6.1746-1.7642 13.937-1.7642 6.8803 0 14.113 1.4114 7.4096 1.2349 13.231 5.469 5.9982 4.234 9.703 12.173 3.8812 7.9388 3.8812 20.994v52.749q-4.5869 0.88209-8.2916 1.0585-3.7048 0.35284-6.5275 0.35284-2.9991 0-6.7039-0.35284-3.7048-0.17642-8.2916-1.0585v-49.573q0-9.3502-3.1755-13.408-3.1755-4.0576-10.409-4.0576-2.4698 0-4.9397 0.52926-2.2934 0.52925-3.1755 0.88209 1.5878 6.1746 1.5878 14.113v51.514q-4.5869 0.88209-8.2916 1.0585-3.7048 0.35284-6.5275 0.35284-2.9991 0-6.7039-0.35284-3.7048-0.17642-8.2916-1.0585v-49.573q0-9.3502-2.9991-13.408-2.9991-4.0576-10.232-4.0576-1.9406 0-4.234 0.35284-2.117 0.35283-2.6463 0.70567v65.98q-4.5869 0.88209-8.2916 1.0585-3.7048 0.35284-6.5275 0.35284-2.9991 0-6.7039-0.35284-3.7048-0.17642-8.2916-1.0585v-86.621z"/>
-                    <g class='dot' fill="#ff3433">
-                    <path d="m499.14 392.81q4.14-0.54 7.92-0.9t7.38-0.36 7.38 0.36 7.92 0.9q0.72 4.14 1.08 7.92t0.36 7.38-0.36 7.38-1.08 7.92q-4.14 0.72-7.92 1.08t-7.38 0.36-7.38-0.36-7.92-1.08q-0.72-4.14-1.08-7.92t-0.36-7.38 0.36-7.38 1.08-7.92z"/>
-                    </g>
-                    </g>
-                    </g>
-                </svg>
-            </a>
-            <br>
-            <br>
-            <h2>A Blog about Computers and Code</h2>
-            <p>
-                Matthew Fitzsimmons spends a lot of time on Linux machines writing Python and developing for the web. This is where he writes about it.
-            </p>
-
-
-            <ul class="menu">
-                <li class="menuitem"><a class="menulink" href="{{ url_for('index') }}">BLOG</a></li>
-                <li class="menuitem"><a class="menulink" href="{{ url_for('portfolio') }}">PORTFOLIO</a></li>
-                <li class="menuitem"><a class="menulink" href="{{ url_for('about') }}">ABOUT</a></li>
-                <li class="menuitem"><a class="menulink" href="{{ url_for('contact') }}">CONTACT</a></li>
-                <li class="menuitem"><a class="menuicon" href="#"><i class="fa fa-rss fa-lg"></i></a></li>
-            </ul>
-        </div>
-    </div>
-    <input type="checkbox" class="hide" id="op"></input>
-    <div class="lower">
-        <label for="op">
-
-            <div class="lower_inner">
-                <div class="burger"></div>
-                <div class="burger"></div>
-            </div>
-
-        </label>
-    </div>
-    <div class="overlay overlay-hugeinc">
-        <label for="op">
-            <div class="x1"></div>
-            <div class="x2"></div>
-        </label>
-        <nav>
-            <ul>
-                <li><a href="{{ url_for('index') }}">BLOG</a></li>
-                <li><a href="{{ url_for('portfolio') }}">PORTFOLIO</a></li>
-                <li><a href="{{ url_for('about') }}">ABOUT</a></li>
-                <li><a href="{{ url_for('contact') }}">CONTACT</a></li>
-            </ul>
-        </nav>
     </div>
 </div>
 {% endblock %}
