@@ -181,6 +181,10 @@ def about():
 def contact():
     return render_template('contact.html')
 
+@app.route('/feed.xml')
+def feed():
+    query = Article.query.order_by(desc(Article.timestamp)).all()
+    return render_template('feed.xml', query=query)
 
 # app run stuff
 
