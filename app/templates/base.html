@@ -9,48 +9,38 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/solarized.css') }}" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $(".menutog").click(function(){
+        $("#overlay").fadeToggle(200);
+    });
+});
+</script>
 {% endblock %}
 
 {% block content %}
 <div class="container">
     <div class="sidebar">
+        <div style="height: 66px;">
         <a class='logo' href='/'>{% include 'logo.html' %}</a>
+        <div class="toptog menutog"><i class="fa fa-bars"></i> Menu</div>
+        </div>
         <h2>A Blog about Computers and Code</h2>
         <p>
         Matthew Fitzsimmons spends a lot of time on Linux machines writing Python and developing for the web. This is where he writes about it.
         </p>
-        <ul class="menu">
-            <li class="menuitem"><a class="menulink" href="{{ url_for('index') }}">BLOG</a></li>
-            <li class="menuitem"><a class="menulink" href="{{ url_for('portfolio') }}">PORTFOLIO</a></li>
-            <li class="menuitem"><a class="menulink" href="{{ url_for('about') }}">ABOUT</a></li>
-            <li class="menuitem"><a class="menulink" href="{{ url_for('contact') }}">CONTACT</a></li>
-            <li class="menuitem"><a class="menulink" href="{{ url_for('contact') }}"><i class="fa fa-rss fa-lg"></i></a></li>
-        </ul>
-        <input type="checkbox" class="hide" id="op"></input>
-        <div class="lower">
-            <label for="op">
-
-                <div class="lower_inner">
-                    <div class="burger"></div>
-                    <div class="burger"></div>
-                </div>
-
-            </label>
-        </div>
-        <div class="overlay overlay-hugeinc">
-            <label for="op">
-                <div class="x1"></div>
-                <div class="x2"></div>
-            </label>
-            <nav>
-                <ul>
-                    <li><a href="{{ url_for('index') }}">BLOG</a></li>
-                    <li><a href="{{ url_for('portfolio') }}">PORTFOLIO</a></li>
-                    <li><a href="{{ url_for('about') }}">ABOUT</a></li>
-                    <li><a href="{{ url_for('contact') }}">CONTACT</a></li>
-                    <li><a href="{{ url_for('contact') }}">CONTACT</a></li>
-                </ul>
-            </nav>
+        <div id="overlay" class="overlay">
+            <div class="cancel menutog">
+               X
+            </div>
+            <ul class="menu">
+                <li class="menuitem"><a class="menulink" href="{{ url_for('index') }}">BLOG</a></li>
+                <li class="menuitem"><a class="menulink" href="{{ url_for('portfolio') }}">PORTFOLIO</a></li>
+                <li class="menuitem"><a class="menulink" href="{{ url_for('about') }}">ABOUT</a></li>
+                <li class="menuitem"><a class="menulink" href="{{ url_for('contact') }}">CONTACT</a></li>
+                <li class="menuitem"><a class="menulink" href="{{ url_for('contact') }}"><i class="fa fa-rss fa-lg"></i></a></li>
+            </ul>
         </div>
     </div>
     <div class="main">

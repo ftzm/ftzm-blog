@@ -32,8 +32,14 @@ div .codehilite {
 .logo {
     display: block;
     margin-bottom: 20px;
+    float: none;
 }
-
+.toptog {
+    display: none;
+}
+.cancel {
+    display: none;
+}
 .content {
     padding-top: 50px;
 }
@@ -232,7 +238,8 @@ footer {
 }
 
 .overlay {
-	display: none;
+    background-color: inherit;
+    display: block;
 }
 
 @media screen and (max-width: 1100px) {
@@ -257,7 +264,7 @@ footer {
     float: none;
 }
 .content {
-    padding-top: 20px;
+    padding-top: 50px;
 }
 .menuitem {
     display: inline-block;
@@ -271,6 +278,38 @@ footer {
 }
 
 @media screen and (max-width: 800px) {
+
+body {
+    background-color: white;
+}
+
+.content {
+    padding-top: 20px;
+}
+.logo {
+    float: left;
+    width: 50%;
+}
+.toptog {
+    display: block;
+    margin-bottom: 20px;
+    width: 50%;
+    float: right;
+    height: 43px;
+    font-size: 24px;
+    text-align: right;
+    margin-bottom: 20px;
+	-moz-transition: color 0.2s;
+	-webkit-transition: color 0.2s;
+	-o-transition: color 0.2s;
+}
+.toptog:hover {
+    color: #ff3433;
+    cursor: pointer;
+	-moz-transition: color 0.2s;
+	-webkit-transition: color 0.2s;
+	-o-transition: color 0.2s;
+}
 .logocolor {
 }
 
@@ -289,180 +328,44 @@ footer {
     border: 0px;
 }
 
+.overlay {
+    background-color: white;
+    position: fixed;
+    display: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100;
+    text-align: center; 
+}
+.cancel {
+    cursor: pointer;
+    display: block;
+    padding-top: 5%;
+    height: 20%;
+    font-size: 54px;
+    color: #ccc;
+}
+.menu {
+    height: 80%;
+    width: 100%;
+}
+.menuitem {
+    display: list-item;
+    height: 20%;
+    margin: 0;
+}
 .menulink {
-	display: none;
+    float: none;
+    font-weight: 300; 
+    font-size: 54px;
+    line-height: 54px;
 }
 
 blockquote {
 	width: 100%;
 	margin: 0 0 20px 0;
-
-/* overlay menu stuff */
-
-.hide {
-display: block;
-}
-
-
-.lower{
-	position: fixed;
-	top: 20px;
-	right: 4vw;
-	width: 50px;
-	height: 50px;
-	background-color: white;
-	border: 1px solid #e5e5e5;
-}
-.lower_inner {
-	position: fixed;
-	background-color: #ababab;
-	width: 24px;
-	height: 17px;
-	margin-top: 16px;
-	margin-left: 12px;
-}
-
-.burger {
-	background-color: white; height: 4px; margin-top:3px;
-}
-.x1{
-	background-color: black;
-	height: 3px;
-	width: 50px;
-	margin-top: 12px;
-	-webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-	-ms-transform: rotate(45deg);
-	-o-transform: rotate(45deg);
-	transform: rotate(45deg);
-	margin-top:23px;
-}
-
-.x2{
-	background-color: black;
-	height: 3px;
-	width: 50px;
-	margin-top: 12px;
-	-webkit-transform: rotate(135deg);
-	-moz-transform: rotate(135deg);
-	-ms-transform: rotate(135deg);
-	-o-transform: rotate(135deg);
-	transform: rotate(135deg);
-	margin-top:-3px;
-}
-
-
-
-.lower label{
-	width: 100%;
-	height: 100%;
-}
-
-.lower label:hover{
-  cursor:pointer;
-}
-
-.overlay{
-	display: block;
-	position: fixed;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-	background: rgba(255,255,255,0.9);
-}
-
-.overlay label{
-	width: 51px;
-	height:51px;
-	position: absolute;
-	right: 4vw;
-	top: 20px;
-	background-color: white;
-	z-index: 100;
-  cursor:pointer;
-}
-
-.overlay nav {
-	text-align: center;
-	position: relative;
-	top: 55%;
-	height: 80%;
-	font-size: 54px;
-	-webkit-transform: translateY(-50%);
-	transform: translateY(-50%);
-}
-
-.overlay ul {
-	list-style: none;
-	padding: 0;
-	margin: 0 auto;
-	display: inline-block;
-	height: 100%;
-	position: relative;
-}
-
-.overlay ul li {
-	display: block;
-	height: 20%;
-	height: calc(100% / 5);
-	min-height: 54px;
-}
-
-.overlay ul li a {
-	font-weight: 300;
-	display: block;
-	color: black;
-    text-decoration:none;
-	-webkit-transition: color 0.2s;
-	transition: color 0.2s;
-    text-transform:uppercase;
-}
-
-.overlay ul li a:hover,
-.overlay ul li a:focus {
-	color: #ff3433;
-}
-
-.lower~.overlay-hugeinc{
-	opacity: 0;
-	visibility: hidden;
-	-webkit-transition: opacity 0.5s, visibility 0s 0.5s;
-	transition: opacity 0.5s, visibility 0s 0.5s;
-}
-
-#op:checked~.overlay-hugeinc{
-	opacity: 1;
-	visibility: visible;
-	-webkit-transition: opacity 0.5s;
-	transition: opacity 0.5s;
-}
-
-.overlay-hugeinc nav {
-	-moz-perspective: 300px;
-}
-
-.overlay-hugeinc nav ul {
-	opacity: 0.4;
-	-webkit-transform: translateY(-25%) rotateX(35deg);
-	transform: translateY(-25%) rotateX(35deg);
-	-webkit-transition: -webkit-transform 0.5s, opacity 0.5s;
-	transition: transform 0.5s, opacity 0.5s;
-}
-
-#op:checked~.overlay-hugeinc nav ul {
-	opacity: 1;
-	-webkit-transform: rotateX(0deg);
-	transform: rotateX(0deg);
-}
-
-#op:not(:checked)~.overlay-hugeinc nav ul {
-	-webkit-transform: translateY(25%) rotateX(-35deg);
-	transform: translateY(25%) rotateX(-35deg);
-}
-
-/# End of overlay menu stuff */
-
 
 }
 
