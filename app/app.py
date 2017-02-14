@@ -25,7 +25,6 @@ from flask.ext.pagedown.fields import PageDownField
 
 app = Flask(__name__)
 app.config.from_envvar('FTZM_CFG')
-app.debug = True
 pagedown = PageDown(app)
 bootstrap = Bootstrap(app)
 basic_auth = BasicAuth(app)
