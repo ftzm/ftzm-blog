@@ -23,8 +23,27 @@ from flask.ext.pagedown.fields import PageDownField
 
 # Config and a bit of intitialization
 
+
 app = Flask(__name__)
-app.config.from_envvar('FTZM_CFG')
+
+app.config['SECRET_KEY'] =  os.environ['SECRET_KEY']
+app.config['BASIC_AUTH_USERNAME'] =  os.environ['BASIC_AUTH_USERNAME']
+app.config['BASIC_AUTH_PASSWORD'] =  os.environ['BASIC_AUTH_PASSWORD']
+app.config[''] =  os.environ['BASIC_AUTH_PASSWORD']
+
+postgres_host = os.environ['FTZM_POSTGRES_SERVICE_HOST']
+postgres_pw = os.environ['POSTGRES_PW']
+db = {
+    'user': 'postgres',
+    'password': postgres_pw,
+    'host': postgres_host,
+    'database': 'ftzm'
+}
+app.config['SQLALCHEMY_DATABASE_URI'] = \
+    'postgresql://{user}:{password}@{host}/{database}'.format(**db)
+
+app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
+
 pagedown = PageDown(app)
 bootstrap = Bootstrap(app)
 basic_auth = BasicAuth(app)
